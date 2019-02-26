@@ -77,6 +77,9 @@ processExcel = function(inputFilename, filename) {
             var date_from = '';
             var date_to = '';
 
+            var dtString = invoice_date.toISOString().slice(0, 10);
+            var resultFileName = vendorName + '_' + global_account + '_' + dtString + '_' + invoice_number;
+            console.log(resultFileName);
 
 
             var workbook1 = new Excel.Workbook();
@@ -278,7 +281,7 @@ processExcel = function(inputFilename, filename) {
             });
 
 
-            saveExcelData(filename, workbook1);
+            saveExcelData(resultFileName, workbook1);
         });
 }
 
